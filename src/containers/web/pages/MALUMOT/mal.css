@@ -1,0 +1,60 @@
+.mal{
+    padding: 0 40px;
+    height: 100vh;
+    margin: 50px 0;
+    background-image: url('../../../../assets/coll.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 80%;
+    position: relative;
+}
+.layer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00597fc3;
+}
+.hash {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    color: #000;
+    margin-left: 40px;
+  }
+  .row .col-6{
+      z-index: 99999;
+  }
+
+  h2{
+    margin-top: 100px;
+    color: #ffffff;
+    font-size: 35px;
+    line-height: 42px;
+  }
+  .tele{
+    color: #f0f1f2;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    display: block;
+    margin-bottom: 50px !important;
+  }
+  .para{
+      font-size: 18px;
+      line-height: 27px;
+      color: #FFF !important;
+      margin-bottom: 15px;
+  }
+  .d-flx{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .tel-img{
+    object-fit: cover;
+    width: 500px;
+  }

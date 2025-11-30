@@ -1,0 +1,443 @@
+import React, { useEffect, useState } from "react";
+import TablePagination from "@material-ui/core/TablePagination";
+import userpic from "../../../assets/icon/userpic.svg";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  ComposedChart,
+  LabelList,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
+import { scaleOrdinal } from "d3-scale";
+import { interpolateCividis, schemeCategory10 } from "d3-scale-chromatic";
+import DatePicker from "react-datepicker";
+import { useSelector } from "react-redux";
+import "react-datepicker/dist/react-datepicker.css";
+import Axios from "../../../utils/axios";
+import styled from "styled-components";
+import Sidebar from "./SidebarConsult";
+import "../../../style/css/SidebarUniverstitet.css";
+import "../../../style/css/SidebarAgentlar.css";
+import "../../../style/css/fakultet.css";
+import "../../../style/css/SidebarUniverstitet.css";
+import "../../../style/css/fakultet.css";
+
+import "react-datepicker/dist/react-datepicker.css";
+import SkeletonLoaderManager from "./assets/skeletonManager/skeleton-manager";
+import Loader from "react-js-loader";
+const colors = scaleOrdinal(schemeCategory10).range();
+
+const dataPie = require("../../consultantBackoffice/univerBackoffice/json/data2.json");
+const dataPie2 = require("../../consultantBackoffice/univerBackoffice/json/data3.json");
+const dataComposed = require("../../consultantBackoffice/univerBackoffice/json/dataComposed.json");
+
+const SidebarManager = () => {
+  const [dataFirst, setDataFirst] = useState();
+  const [data, setData] = useState();
+  const [dataComposeds, setDataComposeds] = useState();
+  const [data_doxod, setDataDoxod] = useState();
+  const [loading, setLoading] = useState(false);
+  const [count, setCount] = useState()
+  const [second, setSecond] = useState([]);
+  const [secondBlock, setSecondBlock] = useState([]);
+  const [firstBlock, setFirstBlock] = useState({
+    completed: '',
+    contract: '',
+    rejected: '',
+    total_sum: ''
+  });
+  const [endDate, setEndDate] = useState(null);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [page, setPage] = useState(0);
+  const [allAccountant, setAllAccountant] = useState('')
+  const [allRegister, setAllRegister] = useState('')
+  const [allManager, setAllManager] = useState('')
+  const [allNotary, setAllNotary] = useState('')
+  const [allLang, setAllLang] = useState('')
+  const [allUniver, setAllUniver] = useState('')
+  const [completed, setAllCompleted] = useState('')
+  const [allRejected, setAllRejected] = useState('')
+  const [payment, setPayment] = useState({
+    not_paid: "",
+    paid: "",
+    waiting_confirmation: "",
+  });
+  const fetchByDay = async () => {
+    setLoading(true);
+    try {
+      const res = await Axios.get(
+        `/company/director/statistics/manager/first_block/?filter-by=day`
+      );
+      ;
+      const { status, data } = res;
+      if (status === 200) {
+        setFirstBlock(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const fetchByWeek = async () => {
+    setLoading(true);
+    try {
+      const res = await Axios.get(
+        `/company/director/statistics/manager/first_block/?filter-by=week`
+      );
+      const { status, data } = res;
+      if (status === 200) {
+        setFirstBlock(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const fetchByMonth = async () => {
+    setLoading(true);
+    try {
+      const res = await Axios.get(
+        `/company/director/statistics/manager/first_block/?filter-by=month`
+      );
+      const { status, data } = res;
+      if (status === 200) {
+        setFirstBlock(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const fetchByYear = async () => {
+    setLoading(true);
+    try {
+      const res = await Axios.get(
+        `/company/director/statistics/manager/first_block/?filter-by=year`
+      );
+      const { status, data } = res;
+      if (status === 200) {
+        setFirstBlock(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const fetchByChoosenDate = async () => {
+    setLoading(true);
+    try {
+      const res = await Axios.get(
+        `/company/director/statistics/manager/first_block/?date-from=${startDate.toLocaleDateString()}&date-to=${endDate.toLocaleDateString()}`
+      );
+      const { status, data } = res;
+      if (status === 200) {
+        setFirstBlock(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const fetchSecondBlock = async () => {
+    setLoading(true);
+    try {
+      const res = await Axios.get(
+        `/company/director/statistics/dashboard/second_block/`
+      );
+      const { status, data } = res;
+      if (status === 200) {
+        setSecond(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const getDataStatistika = async () => {
+    try {
+      const res = await Axios.get("/company/manager/statistics/");
+      const { first_block, second_block, fourth_block, third_block } = res.data;
+      setDataFirst(first_block);
+      setData(second_block);
+      setDataDoxod(third_block);
+      setDataComposeds(fourth_block);
+    } catch (error) { }
+  };
+  useEffect(() => {
+    getDataStatistika();
+  }, []);
+  const [startDate, setStartDate] = useState(null);
+  const selector = useSelector((state) => state.payload.payload.data);
+  useEffect(() => {
+    setLoading(true);
+    let mounted = true;
+    Axios.get("company/director/statistics/manager/first_block/").then(
+      (res) => {
+        if (mounted) {
+          setLoading(false);
+          setFirstBlock(res.data);
+        }
+      }
+    );
+    Axios.get(`company/director/statistics/manager/second_block/?limit=${rowsPerPage}`).then(
+      (res) => {
+        ;
+        if (mounted) {
+          setLoading(false);
+          setSecondBlock(res.data);
+          const data = res.data.reduce((a, b) => a + b.applicants?.in_accountant, 0)
+          const data2 = res.data.reduce((a, b) => a + b.applicants?.completed, 0)
+          const data3 = res.data.reduce((a, b) => a + b.applicants?.in_checking_translations, 0)
+          const data4 = res.data.reduce((a, b) => a + b.applicants?.in_manager, 0)
+          const data5 = res.data.reduce((a, b) => a + b.applicants?.in_notary, 0)
+          const data6 = res.data.reduce((a, b) => a + b.applicants?.in_register, 0)
+          const data7 = res.data.reduce((a, b) => a + b.applicants?.in_university, 0)
+          const data8 = res.data.reduce((a, b) => a + b.applicants?.rejected, 0)
+          setAllAccountant(data)
+          setAllRegister(data6)
+          setAllManager(data4)
+          setAllLang(data3)
+          setAllCompleted(data2)
+          setAllUniver(data7)
+          setAllRejected(data8)
+          setCount(res.data.length)
+          setAllNotary(data5)
+            ;
+        }
+      }
+    );
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const handlePageChange = async (e, newPage) => {
+    setPage(newPage);
+    setLoading(true)
+    try {
+      const res = await Axios.get(`/applicant/list/?limit=${rowsPerPage}&offset=${newPage * rowsPerPage}`);
+      const { status, data, count } = res;
+      const { results } = data;
+      if (status == 200) {
+        setSecondBlock(data);
+      }
+      ;
+      setLoading(false)
+    } catch (error) {
+      ;
+      setLoading(false)
+    }
+  };
+
+  const handleChangeRowsPerPage = async (event) => {
+    setRowsPerPage(+event.target.value);
+    console.log(rowsPerPage);
+    setPage(0);
+  }
+  return (
+    <React.Fragment>
+      <Sidebar>
+        <div className="asos">
+          <div className="up_nav n_up">
+            <div>
+              <h1 className="link_h1">Менеджер</h1>
+            </div>
+            <div className="user_info">
+              <img src={userpic} alt="" />
+              <div>
+                <h1>
+                  {selector.first_name} {selector.last_name}
+                </h1>
+                <h>
+                  {(selector.role == "branch_director" && "директор филиала") ||
+                    selector.role}
+                </h>
+              </div>
+            </div>
+          </div>
+          <div className="home m_analitika manager-director">
+            <FilterContainer>
+              <p onClick={fetchByDay}>День</p>
+              <p onClick={fetchByWeek}>Неделя</p>
+              <p onClick={fetchByMonth}> Месяц</p>
+              <p onClick={fetchByYear}>Год</p>
+              <p>
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  selectsStart
+                  openTo="year"
+                  views={["year", "month", "day"]}
+                  startDate={startDate}
+                  endDate={endDate}
+                  dateFormat="dd MM yyyy"
+                  placeholderText="От"
+                />
+              </p>
+              -
+              <p>
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  onSelect={fetchByChoosenDate}
+                  dateFormat="dd MM yyyy"
+                  minDate={startDate}
+                  placeholderText="До"
+                />
+              </p>
+            </FilterContainer>
+            <div className="block_1">
+              {/* card */}
+              <div className="card manager-director-text">
+                <h4>Договоры</h4>
+                <h3>{firstBlock.contract}</h3>
+              </div>
+              {/* card */}
+              <div className="card manager-director-text ">
+                <h4>Поступившие</h4>
+                <h3>{firstBlock.completed}</h3>
+              </div>
+              {/* card */}
+              <div className="card manager-director-text">
+                <h4>Не поступившие</h4>
+                <h3>{firstBlock.rejected}</h3>
+              </div>
+              {/* card */}
+              <div className="card manager-director-text">
+                <h4>Об-я сумма выплат</h4>
+                <h3>{firstBlock.total_sum}</h3>
+              </div>
+            </div>
+            <div className="SidebarUniverstitet">
+              <div className="univerList fakultet" id="scroll_bar">
+                <table>
+                  <thead>
+                    <tr>
+                      <th className="firstTD">Н</th>
+                      <th className="">ФИО</th>
+                      <th>
+                        У регистрации
+                        все : {allRegister}
+                      </th>
+                      <th>У бухгалтера
+                        все :{allAccountant}
+                      </th>
+                      <th>
+                        У менеджере
+                        все : {allManager}
+                      </th>
+                      <th>
+                        У нотариуса
+                        все : {allNotary}
+                      </th>
+                      <th>Проверка перевода
+                        все : {allLang}
+                      </th>
+                      <th>У университета
+                        все : {allUniver}
+                      </th>
+                      <th>успешно
+                        все : {completed}
+                      </th>
+                      <th>возвращение
+                        все : {allRejected}
+                      </th>
+                      {/* <th>Дедлайн</th> */}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {loading ? (
+                      <Loader
+                        type="spinner-circle"
+                        bgColor={"#FFFFFF"}
+                        color={"#FFFFFF"}
+                        size={80}
+                      />
+                    ) : (
+                      secondBlock?.map((x, i) => {
+                        return (
+                          <tr>
+                            <td>{i + 1}</td>
+                            <td className="firstTD">{x.full_name}</td>
+                            <td>{x.applicants.in_register}</td>
+                            <td>{x.applicants.in_accountant}</td>
+                            <td>{x.applicants.in_manager}</td>
+                            <td>{x.applicants.in_notary}</td>
+                            <td>{x.applicants.in_checking_translations}</td>
+                            <td>{x.applicants.in_university}</td>
+                            <td>{x?.applicants?.completed}</td>
+                            <td>{x?.applicants?.rejected}</td>
+                          </tr>
+                        );
+                      })
+                    )}
+                  </tbody>
+                </table>
+                <TablePagination
+                  rowsPerPageOptions={[20, 40, 60]}
+                  component="table"
+                  count={count}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handlePageChange}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Sidebar>
+    </React.Fragment>
+  );
+};
+
+export default SidebarManager;
+
+const FilterContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-around;
+  p {
+    background: #fff;
+    width: 148px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.6;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+      transition: all 0.25s;
+      box-shadow: 0px -2px 8px rgba(13, 83, 114, 0.15),
+        2px 4px 9px rgba(13, 83, 114, 0.15);
+      border: 1px solid #1ab9;
+    }
+    input {
+      border: none;
+      outline: none;
+      height: 100%;
+      width: 100%;
+    }
+  }
+`;

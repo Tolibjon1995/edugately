@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@mixin t-black-18-500 {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #000000;
+  border: none;
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+@mixin t-black-24-600 {
+  @include t-black-18-500();
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.status {
+  padding: 30px;
+  .myAccInvBottom {
+    margin-top: 40px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.09), 2px 4px 9px rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+
+    & * {
+      font-family: Raleway;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 26px;
+      letter-spacing: 0.02em;
+      color: #00121a;
+    }
+    & > img {
+      display: block;
+      margin: 15px auto;
+      width: 90%;
+    }
+    .myAccInvBottom_Top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .myAccInvTitle1 {
+        width: 350px;
+      }
+    }
+    .myAccInvBottom_Center {
+      display: flex;
+      align-items: center;
+      .myAccInvTitle1:nth-child(2) {
+        margin-left: 50px;
+      }
+    }
+    .myAccInvBottom_Bottom {
+      .myAccInvTitle1 {
+        h1 {
+          span {
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+    .myAccInvBottom_Btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      button {
+        background: #00587f;
+        border-radius: 10px;
+        padding: 15px 20px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        color: #fff;
+      }
+      button:nth-child(1) {
+        background: #f3f5f7;
+        color: #00587f;
+        margin-right: 20px;
+      }
+    }
+    .myAccInvTitle1 {
+      h1 {
+        font-family: Raleway;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: 0.02em;
+        color: #00121a;
+        margin: 10px 0;
+      }
+    }
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      @include t-black-24-600();
+      font-size: 26px;
+      font-weight: bold;
+    }
+    div {
+      display: flex;
+      flex-direction: row-reverse;
+      width: 250px;
+      justify-content: space-around;
+      align-items: center;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      h2 {
+        @include t-black-24-600();
+        margin-left: 12px;
+        font-size: 16px;
+        span {
+          @include t-black-18-500();
+          font-weight: 500;
+          display: block;
+        }
+      }
+    }
+  } // end top
+  .bottom {
+    margin-top: 48px;
+    background: #ffffff;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.09), 2px 4px 9px rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    flex-direction: column;
+    // svg{
+
+    // }
+    h1 {
+      margin-top: 38px;
+      font-family: Raleway;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 31px;
+      text-align: center;
+      color: #000000;
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .status .myAccInvBottom .myAccInvTitle1 h1 {
+    font-size: 18px;
+  }
+  .status .myAccInvBottom .myAccInvBottom_Top .myAccInvTitle1 {
+    width: 270px;
+  }
+  .status .myAccInvBottom .myAccInvBottom_Center .myAccInvTitle1:nth-child(2) {
+    margin-left: 20px;
+  }
+  .status .myAccInvBottom .myAccInvBottom_Bottom .myAccInvTitle1 h1 span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .status .bottom {
+    svg {
+      width: 160px;
+      height: 160px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+  }
+  .status .myAccInvBottom .myAccInvTitle1 h1 {
+    font-size: 16px;
+  }
+  .status .myAccInvBottom .myAccInvBottom_Top .myAccInvTitle1 {
+    width: 240px;
+  }
+  .status .myAccInvBottom .myAccInvBottom_Bottom .myAccInvTitle1 h1 span {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .status {
+    padding: 0px 10px 30px 10px;
+    .top {
+      align-items: flex-start;
+      flex-direction: column;
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+    }
+    .bottom {
+      padding: 20px 10px;
+      svg {
+        width: 120px;
+        height: 120px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .status {
+    padding-top: 5px;
+    .top {
+      align-items: flex-start;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding-top: 5px;
+      & > div {
+        align-self: flex-end;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+.recept {
+  font-style: normal;
+  font-weight: normal;
+  padding-top: 22px;
+  padding-bottom: 23px;
+  font-size: 25px;
+  font-family: sans-serif;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
+}
+.recept-below {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  font-family: sans-serif, Roboto;
+  text-align: center;
+  padding-top: 55px;
+  padding-bottom: 16px;
+
+  color: #000000;
+}
+.paper-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  font-family: sans-serif, Roboto;
+}
+.girl-info {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  font-family: sans-serif, Roboto;
+}
+.girl-one {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.girl-two {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.paper-info {
+  width: 67%;
+}
+
+@media (max-width: 1366px) {
+  .paper-info {
+    width: 63%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .paper-info {
+    width: 57%;
+  }
+}
+@media (max-width: 1024px) {
+  .girl-one {
+    justify-content: center;
+  }
+  .girl-two {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .paper-info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  // .girl-one {
+  // overflow: hidden;
+  // width: 90%;
+  // }
+  .girl-item {
+    width: 100%;
+  }
+}
