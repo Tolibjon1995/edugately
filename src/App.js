@@ -62,7 +62,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      <div className="container" >
+      <div className="container-fluid px-0" >
         <Switch>
           {routes.public.map((item) => {
             return <Route {...item} />;

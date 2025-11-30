@@ -1,0 +1,220 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "../css/icons.min.css";
+
+@import "variables";
+@import "helper";
+@import "common";
+@import "preloader";
+@import "header";
+@import "slider";
+@import "support";
+@import "section-title";
+@import "product";
+@import "blog";
+@import "footer";
+@import "banner";
+@import "suscribe";
+@import "about";
+@import "image-slider";
+@import "testimonial";
+@import "brand-logo";
+@import "timers";
+@import "breadcrumb";
+@import "sidebar";
+@import "shop";
+@import "product-details";
+@import "cart";
+@import "compare";
+@import "checkout";
+@import "contact";
+@import "blog-details";
+@import "login-register";
+@import "my-account";
+@import "404";
+@import "video-popup";
+@import "home";
+@import "logreg";
+@import 'student';
+@import 'universities';
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.fs-7 {
+    font-size: 18px;
+
+}
+
+.max-width {
+    max-width: 1920px !important;
+}
+
+.px-6 {
+    padding-left: 131px;
+    padding-right: 131px;
+
+    @media (max-width: 992px) {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    @media (max-width: 775px) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    @media (max-width: 576px) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.py-6 {
+    padding-top: 145px;
+    padding-bottom: 145px;
+}
+
+.bg-footer {
+    background: linear-gradient(45deg, #325CFD 65%, #D9764B 98.61%);
+    background-repeat: no-repeat;
+}
+
+.text-pr {
+    color: #325CFD;
+}
+
+.bgr{
+    border-radius: 5px;
+}
+
+.btn-unver {
+    width: 209px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 35px;
+    border: 1px solid #325CFD;
+    color: #325CFD;
+    padding: 17px 0px;
+    flex-shrink: 0;
+    box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.10);
+    transition: all 0.3s linear;
+    text-align: center;
+    font-family: $Gilroy;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    &:hover {
+        background-color: #325CFD;
+        color: #FFF;
+    }
+}
+
+#callme {
+    scroll-behavior: smooth;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+
+$main-font: 'Yanone Kaffeesatz', sans-serif;
+$new-white: rgb(248, 246, 234);
+$text-margin: 10px;
+
+.page-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    perspective: 1000px;
+
+    .card-container {
+        height: 440px;
+        margin: 0;
+        padding: 0;
+        top: 20px;
+        width: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        box-sizing: border-box;
+
+        @media (max-width: 576px) {
+            height: 250px;
+        }
+
+        &.flipped {
+            .front {
+                transform: rotateY(180deg);
+            }
+
+            .back {
+                transform: rotateY(0deg);
+            }
+        }
+
+        .front,
+        .back {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            display: block;
+            background: #fff;
+            padding: 10px;
+            position: absolute;
+            border-radius: 10px;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: -webkit-transform ease 500ms;
+            transition: transform ease 500ms;
+        }
+
+        .front {
+            z-index: 2;
+            transform: rotateY(0deg);
+            /* front tile styles go here! */
+        }
+
+        .back {
+            background: #fff;
+            transform: rotateY(-180deg);
+            padding: 20px;
+            font-size: 20px;
+            /* back tile styles go here! */
+
+            .commentss {
+                color: #000;
+                font-family: "Gilroy", sans-serif !important;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+                
+                
+                @media (max-width: 576px) {
+                    font-size: 11px;
+                }
+            }
+        }
+
+
+
+    }
+}
+.go-top {
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
+    display: none;
+    cursor: pointer;
+    z-index: 9;
+}

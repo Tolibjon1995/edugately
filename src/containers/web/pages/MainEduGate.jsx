@@ -24,6 +24,8 @@ import icon3 from "../../../assets/icon/icon3.svg";
 import icon4 from "../../../assets/icon/icon4.svg";
 import icon5 from "../../../assets/icon/icon5.svg";
 import icon6 from "../../../assets/icon/icon6.svg";
+import w from "../../../assets/w.png";
+import unvlogo from "../../../assets/unvlogo.png";
 import star1 from "../../../assets/icons/star1.svg";
 import star2 from "../../../assets/icons/star2.svg";
 import star3 from "../../../assets/icons/star3.svg";
@@ -130,7 +132,7 @@ const MainEduGate = () => {
   const [filterMajors, setFilterMajors] = useState([]);
   const [filterCountry, setFilterCountry] = useState([]);
   const [filterDegree, setFilterDegree] = useState([]);
-  const [univerCount, setUniverCount] = useState(8);
+  const [univerCount, setUniverCount] = useState(12);
   const [countryID, setCountryID] = useState("");
   const lang = selector.payload?.user?.lang?.languageValue;
 
@@ -191,7 +193,7 @@ const MainEduGate = () => {
   }, [unverls])
 
 
-  
+
   // const LimitUn = () => {
   //   if (univerCount === 8) {
   //     setUniverCount(1000)
@@ -212,7 +214,7 @@ const MainEduGate = () => {
       const { results } = data.data;
       if (data.status === 200) {
         setUniversities(results);
-        console.log(results);
+
       }
     } catch (error) {
       ;
@@ -396,18 +398,17 @@ const MainEduGate = () => {
   const unverr = localStorage.getItem('unverr')
 
   useEffect(() => {
-    
-    
-    Axios.get(`/applicant/me/`).then((res)=>{
+
+
+    Axios.get(`/applicant/me/`).then((res) => {
       if (res) {
         localStorage.setItem('mim', res.data.referral_university)
       }
     })
     const mim = localStorage.getItem('mim')
-    console.log(unverr)
-    console.log(mim)
-    
-    if(unverr){
+
+
+    if (unverr) {
       Axios.get(
         `/university/?application_referral_status=true`,
         {
@@ -415,14 +416,12 @@ const MainEduGate = () => {
             "Accept-language": lang,
           },
         }
-      ).then((res)=>{
-        console.log(res)
+      ).then((res) => {
         setUniversities(res.data.results);
-        
+
       })
-    }else{
+    } else {
       fetchUniversities();
-      console.log('ishlamadi')
     }
   }, [])
 
@@ -435,39 +434,47 @@ const MainEduGate = () => {
         <div className="header" id="heaer">
           <Container fluid className="testiviy">
             <Social />
-            <Row className="row">
-              <div className="col-6">
-                <h2>{t("part7")}</h2>
-                <div className="consultation">
-                  <h3>{t("part0")}</h3>
-                  {/* <ArrowForwardIcon /> */}
-                  {/* <span className="arrow-img icon-phone rotate"></span>
+            <Row className="row2">
+              <div className="col-62" style={{ display: 'flex', alignItems: 'center' }}>
+                <div>
+                  <h2 style={{ marginTop: '50px' }}>{t("part7")}</h2>
+                  <div className="consultation">
+                    <h3>{t("part0")}</h3>
+                    {/* <ArrowForwardIcon /> */}
+                    {/* <span className="arrow-img icon-phone rotate"></span>
                    */}
 
-                </div>
-                <h3>{t("part8")}</h3>
-                <div className="listLvl">
-                  <p>
-                    <div className="circleList"></div> {t("part9")}
-                  </p>
-                  <p>
-                    <div className="circleList"></div> {t("part10")}
-                  </p>
-                  <p>
-                    <div className="circleList"></div> {t("part11")}
-                  </p>
-                  <p>
-                    <div className="circleList"></div> {t("part12")}
-                  </p>
-                </div>
-                <div className="consultation d-nn">
-                  {/* <span className="arrow-img icon-phone rotate2"></span> */}
-                  <h3>{t("part0")}</h3>
+                  </div>
+                  <h3>{t("part8")}</h3>
+                  <div className="listLvl">
+                    <p>
+                      <div className="circleList"></div> {t("part9")}
+                    </p>
+                    <p>
+                      <div className="circleList"></div> {t("part10")}
+                    </p>
+                    <p>
+                      <div className="circleList"></div> {t("part11")}
+                    </p>
+                    <p>
+                      <div className="circleList"></div> {t("part12")}
+                    </p>
+                  </div>
+                  <div className="consultation d-nn">
+                    {/* <span className="arrow-img icon-phone rotate2"></span> */}
+                    <h3>{t("part0")}</h3>
+                  </div>
                 </div>
               </div>
-              <div className="col-6">
+              <div className="col-62" >
+                <div className="" style={{ display: 'flex', justifyContent: 'center' }}>
+                  <img style={{ width: '70%' }} src={w} alt="" />
+                </div>
+                <Link to="/registration" className="log-btn">
+                  Bepul ro'yhatdan o'ting
+                </Link>
                 {/* <Tel handlecheck={handlecheck}/> */}
-                <div className="top">
+                {/* <div className="top">
                   <div>
                     <div>
                       <InputMask
@@ -478,22 +485,18 @@ const MainEduGate = () => {
                         onChange={(e) => setPhone(e.target.value)}
                       />
                     </div>
-                    {/* <label className="custom-checkbox">
-                      <input type="checkbox" onClick={handlecheck} name="" id="" />
-                      <span></span>
-                      <p>{t("part44")}</p>
-                    </label> */}
+                    
                     <button className="playbtn" onClick={callMe}>{t("part32")}</button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </Row>
           </Container>
           <div className="chat">
-            <h4>{t("part37")}</h4>
+            {/* <h4>{t("part37")}</h4> */}
             {/* <img src={chat_icon} alt="" /> */}
           </div>
-          <div className="filter">
+          {/* <div className="filter">
             <div className="dropDwn">
               <AutocompleteContainer>
                 <Autocomplete
@@ -591,7 +594,7 @@ const MainEduGate = () => {
                 />
               </svg>
             </a>
-          </div>
+          </div> */}
           {/* end filter */}
         </div>
         {/* end header */}
@@ -657,7 +660,7 @@ const MainEduGate = () => {
                         ) : (
                           <h1>{x.name}</h1>
                         )}
-                        
+
                         {/* <div className="card-ft">
                           <h2 onClick={() => handler(x.id)}>
                             {t("p424")}:{" "}
@@ -705,12 +708,67 @@ const MainEduGate = () => {
         {/* <Yangiliklar /> */}
         {/* Yangiliklar */}
 
+        {/* resultBlock */}
+        <div
+          style={{ position: "relative" }}
+          className="resultBlock"
+          id="university"
+        >
+          <h5>{t("part28")}</h5>
+          <div className="result">
+            {/* <CountryUnver/> */}
+          </div>
+          <div className="result">
+            {/* card */}
+            {universities?.map((item) => {
+              const {
+                id,
+                name,
+                description,
+                education_quality,
+                rating,
+                living_price_per_annum,
+                city,
+                images,
+                icon,
+              } = item;
+              return (
+                <div
+                  className="new-card"
+                  onClick={() => history.push(`/university/${id}`)}
+                  style={{display: 'flex'}}
+                >
+                  <div className="mew-card-img2">
+                    <img src={icon ? icon : unvlogo} alt="" />
+                  </div>
+                  <div className="mew-card-content">
+                    {name?.length > 55 ? (
+                      <h4>{name?.substring(0, 35)}...</h4>
+                    ) : (
+                      <h4>{name}</h4>
+                    )}
+                  </div>
 
+
+                </div>
+              );
+            })}
+
+          </div>
+
+          <Button
+            onClick={() => setUnverls(!unverls)}>
+            {t("bce")}
+          </Button>
+          {/* end result */}
+        </div>
+
+        {/* end resultBlock */}
         {/* workBlock */}
-        <div id="howItWork" className="workBlock">
+        {/* <div id="howItWork" className="workBlock">
           <h4>{t("part14")}</h4>
           <div className="weareWork">
-            {/* card */}
+            
             <div className="card">
               <div className="cardBack">
                 <div>
@@ -719,7 +777,7 @@ const MainEduGate = () => {
                 <p>{t("part38")}</p>
               </div>
             </div>
-            {/* card */}
+            
             <div className="card">
               <div className="cardBack">
                 <div>
@@ -728,7 +786,7 @@ const MainEduGate = () => {
                 <p>{t("part39")}</p>
               </div>
             </div>
-            {/* card */}
+           
             <div className="card">
               <div className="cardBack">
                 <div>
@@ -737,7 +795,7 @@ const MainEduGate = () => {
                 <p>{t("part40")}</p>
               </div>
             </div>
-            {/* card */}
+            
             <div className="card">
               <div className="cardBack">
                 <div>
@@ -746,7 +804,7 @@ const MainEduGate = () => {
                 <p>{t("part43")}</p>
               </div>
             </div>
-            {/* card */}
+            
             <div className="card">
               <div className="cardBack">
                 <div>
@@ -755,7 +813,7 @@ const MainEduGate = () => {
                 <p>{t("part41")}</p>
               </div>
             </div>
-            {/* card */}
+            
             <div className="card">
               <div className="cardBack">
                 <div>
@@ -764,15 +822,15 @@ const MainEduGate = () => {
                 <p>{t("part42")}</p>
               </div>
             </div>
-            
-          </div>
-        </div>
-        {/* end workBlock */}
-        <Container className="aloqa" style={{ marginTop: '30px' }}>
-          <Social />
-          <Row className="row">
 
-            <div className="col-6 belgi" style={{ paddingLeft: '50px', }}>
+          </div>
+        </div> */}
+        {/* end workBlock */}
+        <div className="aloqa " style={{ marginTop: '150px' }}>
+          <Social />
+          <Row className="row2">
+
+            <div className="col-62 belgi" style={{ paddingLeft: '50px', }}>
               <h1>{t("titlecon1")}</h1>
               <div className="consultation">
                 <h3>{t("part0")}</h3>
@@ -783,7 +841,7 @@ const MainEduGate = () => {
                 <h3>{t("part0")}</h3>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-62">
               <div className="top top2">
                 <div>
                   <div>
@@ -805,138 +863,25 @@ const MainEduGate = () => {
               </div>
             </div>
           </Row>
-        </Container>
-        {/* resultBlock */}
-        <div
-          style={{ position: "relative" }}
-          className="resultBlock"
-          id="university"
-        >
-          <h5>{t("part15")}</h5>
-          <div className="result">
-            {/* <CountryUnver/> */}
-          </div>
-          <div className="result">
-            {/* card */}
-            {universities?.map((item) => {
-              const {
-                id,
-                name,
-                description,
-                education_quality,
-                rating,
-                living_price_per_annum,
-                city,
-                images,
-              } = item;
-              return (
-                <div
-                  className="card card-md"
-                  onClick={() => history.push(`/university/${id}`)}
-                >
-                  <div>
-                    <img
-                      className="img-unv"
-                      src={
-                        item?.images?.length === 0
-                          ? univer_pic
-                          : item.images[0].image.toString()
-                      }
-                      alt=""
-                    />
-                    <svg
-                      width="20"
-                      height="20"
-                      fill="none"
-                      viewBox="0 0 20 20"
-                      ref={startRef}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        //fill={star === true ? "yellow" : ""}
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M11.1043 2.17701L12.9317 5.82776C13.1108 6.18616 13.4565 6.43467 13.8573 6.49218L17.9453 7.08062C18.9554 7.22644 19.3573 8.45055 18.6263 9.15194L15.6702 11.9924C15.3797 12.2718 15.2474 12.6733 15.3162 13.0676L16.0138 17.0778C16.1856 18.0698 15.1298 18.8267 14.227 18.3574L10.5732 16.4627C10.215 16.2768 9.78602 16.2768 9.42679 16.4627L5.773 18.3574C4.87023 18.8267 3.81439 18.0698 3.98724 17.0778L4.68385 13.0676C4.75257 12.6733 4.62033 12.2718 4.32982 11.9924L1.37368 9.15194C0.642715 8.45055 1.04464 7.22644 2.05466 7.08062L6.14265 6.49218C6.54354 6.43467 6.89028 6.18616 7.06937 5.82776L8.89574 2.17701C9.34765 1.27433 10.6523 1.27433 11.1043 2.17701Z"
-                        stroke="#F2F2F2"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    {name?.length > 55 ? (
-                      <h1>{name?.substring(0, 35)}...</h1>
-                    ) : (
-                      <h1>{name}</h1>
-                    )}
-                  </div>
-                  {/* {description?.length > 100 ? (
-                    <p onClick={() => handler(id)}>
-                      {description.substring(0, 180)}...
-                    </p>
-                  ) : (
-                    <p onClick={() => handler(id)}>{description}</p>
-                  )} */}
-
-                  <div className="card-ft">
-                    {/* <h2 onClick={() => handler(id)}>
-                      {t("p424")}:{" "}
-                      <span>
-                        {rating} место {city.name}
-                      </span>
-                    </h2>
-                    <h3 onClick={() => handler(id)}>
-                      {t("p611")}:
-                      <img
-                        className="star_image"
-                        src={
-                          education_quality === 1
-                            ? star1
-                            : education_quality === 2
-                              ? star2
-                              : education_quality === 3
-                                ? star3
-                                : education_quality === 4
-                                  ? star4
-                                  : star5
-                        }
-                        alt=""
-                      />
-                    </h3> */}
-                    <h4 onClick={() => handler(id)}>
-                      {/* {t("p612")}: <span>{living_price_per_annum}</span> */}
-                    </h4>
-                  </div>
-                </div>
-              );
-            })}
-            {/* end card */}
-          </div>
-
-          <Button
-            onClick={()=>setUnverls(!unverls)}>
-            {t("bce")}
-          </Button>
-          {/* end result */}
         </div>
 
-        {/* end resultBlock */}
         {/* MALUMOT OLISH */}
 
         {/* MALUMOT OLISH */}
         {/* top fakultet */}
-        <div className='CountryUnver'  style={{width: '100%'}}>
-            <div className="topFacultetBlock "  style={{width: '100%'}}>
-                <h4>{t("part16")}</h4>
-                <div className="topFacultet" style={{width: '100%'}}>
-                    {datafac.map((a) => {
-                        return (
-                            <div className={`card ${a.img}`}>
-                                <p className='p'>{a.name}</p>
-                            </div>
-                        );
-                    })}
-                </div>
+        <div className='CountryUnver' style={{ width: '100%' }}>
+          <div className="topFacultetBlock " style={{ width: '100%' }}>
+            <h4>{t("part16")}</h4>
+            <div className="topFacultet" style={{ width: '100%' }}>
+              {datafac.map((a) => {
+                return (
+                  <div className={`card ${a.img}`}>
+                    <p className='p'>{a.name}</p>
+                  </div>
+                );
+              })}
             </div>
+          </div>
         </div>
         {/* <div className="topFacultetBlock">
           <h4>{t("part16")}</h4>

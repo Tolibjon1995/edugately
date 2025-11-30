@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from './Navbar2'
 import '../../../style/css/biz.css'
 import { useTranslation } from 'react-i18next';
-import Footer from '../footer/footer';
+import Footer from '../footer/footer2';
 
 const Biz = () => {
     const { t, i18n } = useTranslation();

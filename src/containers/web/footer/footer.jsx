@@ -96,9 +96,9 @@ const Footer = () => {
   }
 
   return (
-    <div className="footer">
-      <button className="btn">{t("part30")}</button>
-      <div className="top">
+    <div className="footer oldd">
+      {/* <button className="btn">{t("part30")}</button> */}
+      {/* <div className="top">
         <h1>{t("part31")}</h1>
         <div>
           <div>
@@ -110,26 +110,22 @@ const Footer = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          {/* <label className="custom-checkbox">
-            <input type="checkbox" onClick={handlecheck} name="" id="" />
-            <span></span>
-            <p>{t("part44")}</p>
-          </label> */}
+
           <button style={{ marginBottom: '25px' }} onClick={callMe}>{t("part32")}</button>
         </div>
-      </div>
+      </div> */}
       <div className="down">
 
         <div className="left">
-          <MapEdugately />
-
+          {/* <MapEdugately /> */}
+          <Link className="text-white mt-3 ms-5" style={{fontSize: '50px'}} to='/' >EDUGATELY</Link>
 
         </div>
         <div className="right">
           {/* <h1>{t("part47")}</h1> */}
           {/* <p> {t("part48")}</p> */}
           <div className="email">
-            <input type="email" onChange={e => ValidateEmail(e.target.value)} placeholder="Email" />
+            <input type="email" onChange={e => ValidateEmail(e.target.value)} placeholder="E-mail" />
 
           </div>
           <span style={valid2 == true ? { color: '#30A800', fontWeight: 700 } : { color: '#fd0000', fontWeight: 700 }}>{valid}</span>

@@ -3,11 +3,12 @@ import { useEffect } from "react";
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import Axios from "../../../utils/axios";
 import "../../../style/css/singlepage.css";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar2";
 import backTo from "./../../../assets/images/BackTo.png";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Footer from "../footer/footer2";
 
 export default function SInglePageById() {
 
@@ -48,8 +49,8 @@ export default function SInglePageById() {
   console.log(mainId);
   return (
     <>
-      {/* <Navbar/> */}
-      <div className="sp_main">
+      <Navbar/>
+      <div className="sp_main mt-5 mb-5">
         <div style={{ justifyContent: "unset" }} className="sp_main2 sp2">
           <div></div>
           <div>
@@ -78,8 +79,8 @@ export default function SInglePageById() {
                     <th>{t("p234")}</th>
                     <th>{t("p2342")}</th>
                     <th>{t("p439")}</th>
-                    <th>{t("p2342")}</th>
-                    
+                    <th>{t("p2343")}</th>
+
                     <th>{t("p336")}</th>
                   </tr>
                 </thead>
@@ -115,6 +116,7 @@ export default function SInglePageById() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

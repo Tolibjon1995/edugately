@@ -1,0 +1,13 @@
+.type_file {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 98%;
+  height: 50px;
+}
+.type_file img {
+  width: 100%;
+}
+.type_file input {
+  display: none;
+}/*# sourceMappingURL=invois.css.map */

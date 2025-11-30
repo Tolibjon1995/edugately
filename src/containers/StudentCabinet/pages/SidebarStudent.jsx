@@ -126,7 +126,7 @@ const StudentSidebar = () => {
           <div className="bottom">
             <NavLink exact to="/my-account" onClick={() => setSideFix(false)}>
               <img src={Profile_icon} alt="" />
-              <h5>{t("part55")}</h5>
+              <h5>{t("part55")} </h5>
             </NavLink>
             <NavLink to="/universities" onClick={() => setSideFix(false)}>
               <img src={univer_icon} alt="" />

@@ -1,0 +1,329 @@
+.DNT_SideGlavBtnDate {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+  grid-gap: 30px;
+  margin-top: 30px;
+  width: 100%;
+}
+.DNT_SideGlavBtnDate > button {
+  background: #fff;
+  border-radius: 14px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: #696a6b;
+  opacity: 0.6;
+  border: none;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.09), 2px 4px 9px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.DNT_SideGlavBtnDate button:hover {
+  color: #000;
+}
+.DNT_SideGlavBtnDate .datapickBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+.DNT_SideGlavBtnDate .datapickBlock .react-datepicker-wrapper .react-datepicker__input-container input {
+  height: 50px;
+  border: none;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.09), 2px 4px 9px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 14px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  color: #696a6b;
+}
+
+.DNT_SideGlavBox {
+  margin-top: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+.DNT_SideGlavBox .card {
+  padding: 15px;
+  background: #FFFFFF;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.09), 2px 4px 9px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  height: 120px;
+}
+.DNT_SideGlavBox .card > * {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.DNT_SideGlavBox .card h4 {
+  color: #00121A;
+  font-size: 22px;
+}
+.DNT_SideGlavBox .card h3 {
+  font-size: 32px;
+  padding-top: 15px;
+  color: #00587F;
+}
+
+.SidebarUniverstitet .univerList .univerOfficeNapravfakultetTable tr td {
+  padding: 10px 0;
+}
+
+.SidebarUniverstitet .univerList .univerOfficeNapravfakultetTable tbody tr td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.SidebarUniverstitet .univerList .univerOfficeNapravfakultetTable thead th {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.SidebarUniverstitet .univerList .univerOfficeNapravfakultetTable tbody {
+  text-align: center;
+}
+
+.DNT_univerOfficeInfo1 .img_big {
+  left: -42px;
+  width: 105%;
+}
+
+.DNT_studentUniversitet {
+  width: auto;
+}
+
+.accountant-ticket .SidebarUniverstitet .univerList, .accountant-analytics .SidebarUniverstitet .univerList {
+  padding-top: 12px;
+}
+.accountant-ticket .SidebarUniverstitet .univerList table .accTickTableTr td, .accountant-analytics .SidebarUniverstitet .univerList table .accTickTableTr td {
+  padding: 12px 10px;
+  text-align: center;
+}
+.accountant-ticket .SidebarUniverstitet .univerList table thead th, .accountant-analytics .SidebarUniverstitet .univerList table thead th {
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.accountant-analytics .block_1 {
+  margin: 30px 0;
+}
+.accountant-analytics .sideOtdel .block_5 {
+  margin-top: 0;
+}
+
+.infoDanJs {
+  width: 100%;
+  height: 320px;
+  position: relative;
+}
+.infoDanJs > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.infoDanJs .user_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.infoDanJs .user_info img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.infoDanJs .user_info .infoBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.infoDanJs .user_info .infoBottom h1, .infoDanJs .user_info .infoBottom h2 {
+  font-family: Raleway;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: #F2F2F2;
+  text-align: center;
+  margin-top: 5px;
+}
+.infoDanJs .infoTop {
+  padding: 20px 10px 10px 10px;
+}
+.infoDanJs .infoTop h1 {
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 26px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 1080px) {
+  .accountant-ticket .SidebarUniverstitet .univerList, .accountant-analytics .SidebarUniverstitet .univerList {
+    padding-top: 12px;
+  }
+  .accountant-ticket .SidebarUniverstitet .univerList table .accTickTableTr td, .accountant-analytics .SidebarUniverstitet .univerList table .accTickTableTr td {
+    padding: 12px 10px;
+  }
+  .accountant-ticket .SidebarUniverstitet .univerList table thead th, .accountant-analytics .SidebarUniverstitet .univerList table thead th {
+    padding: 12px 10px;
+  }
+  .DNT_SideGlavBox .card {
+    padding: 10px;
+    height: 90px;
+  }
+  .DNT_SideGlavBox .card h4 {
+    font-size: 15px;
+  }
+  .DNT_SideGlavBox .card h3 {
+    padding-top: 0;
+    font-size: 22px;
+  }
+}
+@media (max-width: 1024px) {
+  .up_nav .user_info {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    justify-content: flex-start;
+    padding: 0 0 0 70px;
+    background: #fff;
+    z-index: 10;
+  }
+  .up_nav .user_info img {
+    margin: 0 14px;
+  }
+  .up_nav .user_info > div {
+    padding: 0;
+    height: auto;
+  }
+  .up_nav .user_info > div h1, .up_nav .user_info > div h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .DNT_univerOfficeInfo1 .up_nav .user_info {
+    position: static;
+    height: auto;
+    background: none;
+  }
+  .DNT_univerOfficeInfo1 .info_h1 {
+    top: -40px;
+  }
+}
+.tableAccTableDef {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .accountant-ticket, .accountant-analytics, .ConsultSideStrana, .consultSidebarUniverstitet, .consultFakulteet, .consultSidebarFiliial, .consultTaalabalar, .consultDoccuments, .consultAnnalitika, .consultPlatejji, .consultDoogovori, .consultAgennts, .consultSiideOtdel {
+    padding-top: 70px;
+  }
+  .accountant-ticket .switch_asos .Up_navbar > div:nth-child(2), .accountant-analytics .switch_asos .Up_navbar > div:nth-child(2), .ConsultSideStrana .switch_asos .Up_navbar > div:nth-child(2), .consultSidebarUniverstitet .switch_asos .Up_navbar > div:nth-child(2), .consultFakulteet .switch_asos .Up_navbar > div:nth-child(2), .consultSidebarFiliial .switch_asos .Up_navbar > div:nth-child(2), .consultTaalabalar .switch_asos .Up_navbar > div:nth-child(2), .consultDoccuments .switch_asos .Up_navbar > div:nth-child(2), .consultAnnalitika .switch_asos .Up_navbar > div:nth-child(2), .consultPlatejji .switch_asos .Up_navbar > div:nth-child(2), .consultDoogovori .switch_asos .Up_navbar > div:nth-child(2), .consultAgennts .switch_asos .Up_navbar > div:nth-child(2), .consultSiideOtdel .switch_asos .Up_navbar > div:nth-child(2) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    justify-content: flex-start;
+    padding: 0 0 0 70px;
+    background: #fff;
+    z-index: 10;
+  }
+  .accountant-ticket .switch_asos .Up_navbar > div:nth-child(2) img, .accountant-analytics .switch_asos .Up_navbar > div:nth-child(2) img, .ConsultSideStrana .switch_asos .Up_navbar > div:nth-child(2) img, .consultSidebarUniverstitet .switch_asos .Up_navbar > div:nth-child(2) img, .consultFakulteet .switch_asos .Up_navbar > div:nth-child(2) img, .consultSidebarFiliial .switch_asos .Up_navbar > div:nth-child(2) img, .consultTaalabalar .switch_asos .Up_navbar > div:nth-child(2) img, .consultDoccuments .switch_asos .Up_navbar > div:nth-child(2) img, .consultAnnalitika .switch_asos .Up_navbar > div:nth-child(2) img, .consultPlatejji .switch_asos .Up_navbar > div:nth-child(2) img, .consultDoogovori .switch_asos .Up_navbar > div:nth-child(2) img, .consultAgennts .switch_asos .Up_navbar > div:nth-child(2) img, .consultSiideOtdel .switch_asos .Up_navbar > div:nth-child(2) img {
+    margin: 0 14px;
+  }
+  .accountant-ticket .switch_asos .Up_navbar > div:nth-child(2) > div, .accountant-analytics .switch_asos .Up_navbar > div:nth-child(2) > div, .ConsultSideStrana .switch_asos .Up_navbar > div:nth-child(2) > div, .consultSidebarUniverstitet .switch_asos .Up_navbar > div:nth-child(2) > div, .consultFakulteet .switch_asos .Up_navbar > div:nth-child(2) > div, .consultSidebarFiliial .switch_asos .Up_navbar > div:nth-child(2) > div, .consultTaalabalar .switch_asos .Up_navbar > div:nth-child(2) > div, .consultDoccuments .switch_asos .Up_navbar > div:nth-child(2) > div, .consultAnnalitika .switch_asos .Up_navbar > div:nth-child(2) > div, .consultPlatejji .switch_asos .Up_navbar > div:nth-child(2) > div, .consultDoogovori .switch_asos .Up_navbar > div:nth-child(2) > div, .consultAgennts .switch_asos .Up_navbar > div:nth-child(2) > div, .consultSiideOtdel .switch_asos .Up_navbar > div:nth-child(2) > div {
+    padding: 0;
+    height: auto;
+  }
+  .accountant-ticket .asos, .accountant-analytics .asos, .ConsultSideStrana .asos, .consultSidebarUniverstitet .asos, .consultFakulteet .asos, .consultSidebarFiliial .asos, .consultTaalabalar .asos, .consultDoccuments .asos, .consultAnnalitika .asos, .consultPlatejji .asos, .consultDoogovori .asos, .consultAgennts .asos, .consultSiideOtdel .asos {
+    padding-top: 0;
+  }
+  .accountant-ticket .asos .Up_navbar, .accountant-analytics .asos .Up_navbar, .ConsultSideStrana .asos .Up_navbar, .consultSidebarUniverstitet .asos .Up_navbar, .consultFakulteet .asos .Up_navbar, .consultSidebarFiliial .asos .Up_navbar, .consultTaalabalar .asos .Up_navbar, .consultDoccuments .asos .Up_navbar, .consultAnnalitika .asos .Up_navbar, .consultPlatejji .asos .Up_navbar, .consultDoogovori .asos .Up_navbar, .consultAgennts .asos .Up_navbar, .consultSiideOtdel .asos .Up_navbar {
+    margin-left: 0;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  .accountant-ticket .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .accountant-analytics .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .ConsultSideStrana .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultSidebarUniverstitet .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultFakulteet .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultSidebarFiliial .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultTaalabalar .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultDoccuments .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultAnnalitika .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultPlatejji .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultDoogovori .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultAgennts .asos .Up_navbar > div:nth-child(1) .nav-bugalter, .consultSiideOtdel .asos .Up_navbar > div:nth-child(1) .nav-bugalter {
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    align-items: center;
+  }
+  .accountant-ticket .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .accountant-analytics .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .ConsultSideStrana .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultSidebarUniverstitet .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultFakulteet .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultSidebarFiliial .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultTaalabalar .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultDoccuments .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultAnnalitika .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultPlatejji .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultDoogovori .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultAgennts .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5, .consultSiideOtdel .asos .Up_navbar > div:nth-child(1) .nav-bugalter h5 {
+    margin: 0 0 0 20px;
+  }
+  .DNT_univerOfficeInfo1 .img_big {
+    height: 200px;
+  }
+  .DNT_univerOfficeInfo1 .info_h1 {
+    padding-top: 0;
+  }
+  .DNT_univerOfficeInfo1 .info_h1 .user_info img {
+    width: 80px;
+    height: 80px;
+  }
+  .DNT_univerOfficeInfo1 .up_nav .user_info > div {
+    padding-top: 8px;
+  }
+  .DNT_univerOfficeInfo1 .info_h1 h1 {
+    margin-left: 65px;
+  }
+  .DNT_SideGlavBox {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+@media (max-width: 425px) {
+  .accountant-ticket .SidebarUniverstitet .FilterFix .FilterUniver, .accountant-analytics .SidebarUniverstitet .FilterFix .FilterUniver {
+    z-index: 102;
+  }
+  .accountant-ticket .asos .Up_navbar > div:nth-child(1) .nav-bugalter h4, .accountant-analytics .asos .Up_navbar > div:nth-child(1) .nav-bugalter h4 {
+    font-size: 16px;
+  }
+  .consultAgennts .SidebarAgentlar > button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .unniversitetBlock .top, .Personal .top, .dogovor .top, .status .top {
+    padding-top: 70px;
+  }
+  .unniversitetBlock .top h1, .Personal .top h1, .dogovor .top h1, .status .top h1 {
+    font-size: 18px;
+  }
+  .unniversitetBlock .top > div, .Personal .top > div, .dogovor .top > div, .status .top > div {
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+  }
+  .kabinet .Personal .top, .kabinet .dogovor .top, .kabinet .status .top {
+    padding-top: 20px;
+  }
+}/*# sourceMappingURL=DNT.css.map */

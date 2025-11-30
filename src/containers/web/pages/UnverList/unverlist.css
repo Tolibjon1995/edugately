@@ -1,3 +1,75 @@
-.unverListBtn{
-    
+.unverContainer {
+
+    display: flex;
+    align-items: center;
+}
+
+.unverSidebar {
+    width: 20%;
+    height: 100vh;
+    padding: 30px;
+    padding-top: 70px;
+    -webkit-box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.unverContent {
+    width: 80%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navLeft {
+    display: flex;
+    align-items: center;
+    color: #007aff;
+}
+
+.navLeft svg::fill{
+
+    color: #007aff;
+}
+
+.navLeft h1 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.02em;
+    color: #007aff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 12px;
+    font-weight: 600;
+}
+.mt-80{
+    margin-top: 80px;
+}
+@media (max-width: 992px) {
+    .unverSidebar {
+        width: 30%;
+    }
+    .unverContent {
+        width: 70%;
+    }
+}
+@media (max-width: 576px) {
+    .mt-80{
+        margin-top: 20px;
+    }
+    .unverContainer{
+        display: block;
+    }
+    .unverSidebar {
+        width: 100%;
+        height: 268px;
+        padding: 30px;
+
+    }
+    .unverContent {
+        width: 100%;
+    }
 }

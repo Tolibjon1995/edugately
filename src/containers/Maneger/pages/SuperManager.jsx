@@ -548,7 +548,7 @@ export default function SuperManager() {
                 </table>
               </TableContainer>
               <TablePagination
-                rowsPerPageOptions={[20, 40, 60, 200]}
+                rowsPerPageOptions={[20, 40, 60]}
                 component="table"
                 count={count}
                 rowsPerPage={rowsPerPage}

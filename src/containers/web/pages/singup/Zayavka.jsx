@@ -279,7 +279,7 @@ function Zayavka() {
           <h1> {t("p487")}</h1>
         </div>
         <div className="up_nav">
-          <h2 className="singup_pass"> {t("p488")}</h2>
+          <NavLink to="/sign-up" className="singup_pass h2"> {t("p488")}</NavLink>
           <svg
             id="svg_pass"
             width="82"
@@ -321,7 +321,7 @@ function Zayavka() {
           </svg>
           <h2> {t("p491")}</h2>
         </div>
-        <form onSubmit={handleSubmit} className="main_singup" style={{width: '40%'}}>
+        <form onSubmit={handleSubmit} className="main_singup" >
           <h1> {t("p349")}</h1>
           <div className="form_div">
             <p>

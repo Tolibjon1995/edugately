@@ -1,0 +1,85 @@
+.avtorizatsiya {
+    background: rgb(251, 219, 253);
+    background: linear-gradient(158deg, rgba(187, 237, 254, 1) 25%, rgba(251, 219, 253, 1) 65%) !important;
+    height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @media (max-width: 776px) {
+        height: 100%;
+        overflow: auto;
+        padding: 0;
+    }
+
+    .log_con {
+        background: linear-gradient(336deg, rgb(158, 255, 248) 0%, rgb(255, 255, 255) 50%, rgb(255, 209, 245) 100%);
+        min-height: 80%;
+        max-height: 100%;
+        border-radius: 10px;
+        overflow-y: auto;
+        padding-bottom: 30px;
+
+        @media (max-width: 776px) {
+            padding-bottom: 50px;
+        }
+
+        .chiz {
+            width: 1px;
+            height: 80%;
+            background: #015EDF;
+            position: absolute;
+            left: 60px;
+            @media (max-width: 775px) {
+                display: none;
+            }
+        }
+
+        .log_inp {
+            border-radius: 8px;
+            border: 1px solid var(--stroke, #E2E8F0);
+            background: var(--white, #FFF);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            .log_inp_in {
+                background: var(--white, #FFF);
+                border: none;
+                width: 90%;
+                margin-top: 5px;
+            }
+        }
+
+        .form-check-input {
+            width: 1.5em;
+            height: 1.5em;
+            margin-top: 0;
+        }
+
+        .btn-login {
+            width: 100%;
+            border: 1px solid var(--stroke, #E2E8F0);
+            background: var(--gray, #EFF4FB);
+        }
+
+        .label {
+            color: var(--dark, #1C2434);
+            font-family: $Gilroy;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            /* 120% */
+        }
+
+        h2 {
+            color: #000;
+            font-family: $Gilroy;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 56px;
+        }
+    }
+}

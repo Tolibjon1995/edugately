@@ -15,7 +15,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import Fade from "@material-ui/core/Fade";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar2";
 import { authSaveData } from "../../../../store/actions/authActions";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
@@ -149,14 +149,14 @@ function Oplata3() {
   return (
     <React.Fragment>
       <div className="navRegist">
-        <Navbar />
+        {/* <Navbar /> */}
       </div>
       <div className="singup_asos container">
         <div className="nav_name">
           <h1> {t("p487")}</h1>
         </div>
         <div className="up_nav">
-          <h2 className="singup_pass"> {t("p488")}</h2>
+        <NavLink to="/sign-up" className="singup_pass h2"> {t("p488")}</NavLink>
           <svg
             id="svg_pass"
             width="82"
@@ -170,7 +170,8 @@ function Oplata3() {
               fill="#5C7C8A"
             />
           </svg>
-          <h2 className="singup_pass">{t("p489")}</h2>
+
+          <NavLink to="/requisition" className="singup_pass h2"> {t("p489")}</NavLink>
           <svg
             id="svg_pass"
             width="82"
@@ -184,7 +185,7 @@ function Oplata3() {
               fill="#5C7C8A"
             />
           </svg>
-          <h2 className="singup_pass">{t("p490")}</h2>
+          <NavLink to="/files" className="singup_pass h2">{t("p490")}</NavLink>
           <svg
             id="svg_pass"
             width="82"
@@ -201,7 +202,7 @@ function Oplata3() {
           <h2 className="singup_active2">{t("p491")}</h2>
         </div>
         <div className="main_singup">
-          <h1>Оплата</h1>
+          <h1>{t("p491")}</h1>
           <div className="oplata_asos">
             <div className="oplata_tip">
               <p> {t("p496")}</p>

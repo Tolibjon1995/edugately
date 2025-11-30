@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import StudentSidebar from "./SidebarStudent";
+import StudentSidebar from "./StudentSidebar2.jsx";
 import StudentCabinet from "../studentCabinet";
 import { useSelector } from "react-redux";
 import folder from "../../../assets/icons/folder.svg";
@@ -16,6 +16,8 @@ import wait from "../../../assets/images/Waiting.svg";
 import goal from "../../../assets/images/Goal.svg";
 import { useTranslation } from "react-i18next";
 import "../../../style/css/status.css";
+import Headerst from "./Headerst.jsx";
+import img from '../../../assets/studentImgs/youngman.png'
 
 const MyAccInvoys = () => {
   const { t, i18n } = useTranslation();
@@ -28,8 +30,8 @@ const MyAccInvoys = () => {
   const inputEl5 = useRef(null);
   const inputEl6 = useRef(null);
   const inputEl7 = useRef(null);
-  const inputEl8= useRef(null);
-  const inputEl9= useRef(null);
+  const inputEl8 = useRef(null);
+  const inputEl9 = useRef(null);
   const [cert, setCert] = useState("");
   const [file, setFile] = useState({
     myInvoice: "",
@@ -70,7 +72,7 @@ const MyAccInvoys = () => {
     if (inputEl1.current?.files[0]) {
       formData.append("applicant_invoice_upload", inputEl1.current.files[0]);
     }
-   
+
     if (!file.diploma_confirmed) return
     try {
       const res = await Axios.patch(
@@ -338,7 +340,50 @@ const MyAccInvoys = () => {
   }, []);
   return (
     <>
-      <StudentSidebar />
+      <div className="studentKabinet" style={{ width: '100vw' }}>
+        <StudentSidebar />
+        <div className="mobileHeader">
+          <div className="header-icons">
+            <div className="hambur" onclick="showSidebar()">
+
+              <svg xmlns="http://www.w3.org/2000/svg" width={34} height={34} viewBox="0 0 34 34" fill="none">
+                <path d="M28.3335 9.91699L5.66683 9.91699" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M28.3335 17L5.66683 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M28.3335 24.083L5.66683 24.083" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </div>
+            <div className="logo">
+              <img src="/assets/studentImgs/Education gately 1.png" alt />
+              <h1>EDUGATELY</h1>
+            </div>
+            <a href="tel:+998555061011" className="tel">
+
+              <svg xmlns="http://www.w3.org/2000/svg" width={34} height={34} viewBox="0 0 34 34" fill="none">
+                <path d="M19.8335 2.83301C19.8335 2.83301 22.9502 3.11634 26.9168 7.08301C30.8835 11.0497 31.1668 14.1663 31.1668 14.1663" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M20.1265 7.8418C20.1265 7.8418 21.5289 8.24249 23.6325 10.3461C25.7362 12.4498 26.1369 13.8522 26.1369 13.8522" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M14.2198 7.53157L15.1392 9.17905C15.9689 10.6658 15.6358 12.6162 14.329 13.923C14.329 13.923 14.329 13.923 14.329 13.923C14.3289 13.9232 12.744 15.5083 15.6179 18.3823C18.4912 21.2555 20.0763 19.672 20.0771 19.6712C20.0771 19.6711 20.0771 19.6711 20.0772 19.6711C21.384 18.3643 23.3344 18.0312 24.8211 18.861L26.4686 19.7804C28.7136 21.0333 28.9788 24.1818 27.0054 26.1551C25.8197 27.3409 24.3671 28.2635 22.7613 28.3244C20.0581 28.4269 15.4674 27.7427 10.8624 23.1377C6.25743 18.5328 5.57331 13.9421 5.67579 11.2389C5.73666 9.63309 6.65931 8.18049 7.84506 6.99474C9.81841 5.02139 12.9668 5.28653 14.2198 7.53157Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <Headerst first_name={userInfo.first_name + ' ' + userInfo.last_name} />
+        <div className="sub-header " id="sub-header">
+          <div className="invoice">
+            <div className="data-filling pb-5">
+
+              <div className="example-btn"><button>{t('part202')}</button></div>
+              <div className="inputs-ul pt-5">
+                <div className="d-flex align-items-center justify-content-center">
+                  <img className="m-auto" src={img} alt="" />
+                </div>
+                <h3 className="text-center mt-3">{t("p398")}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {/* <StudentSidebar />
       <div className="main" style={{ width: '82%' }}>
         <div className="status">
           <div className="top">
@@ -490,7 +535,7 @@ const MyAccInvoys = () => {
             </div>
           )}
 
-          {/* IKKINCHI SMESTR */}
+         
           {
             invoice.applicant_invoice_upload && !invoice.applicant_invoice_upload_2 ?
               (
@@ -551,7 +596,7 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* UCHINCHI SMESTR */}
+        
 
           {
             invoice.applicant_invoice_upload_2 && !invoice.applicant_invoice_upload_3 ?
@@ -613,10 +658,10 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* TO'RTINCHI SMESTR */}
+      
 
           {
-            invoice.applicant_invoice_upload_3 && !invoice.applicant_invoice_upload_4  ?
+            invoice.applicant_invoice_upload_3 && !invoice.applicant_invoice_upload_4 ?
               (
                 <div className="myAccInvBottom">
                   <div className="myAccInvBottom_Btn">
@@ -675,10 +720,10 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* BESHINCHI SMESTR */}
+      
 
           {
-            invoice.applicant_invoice_upload_4 && !invoice.applicant_invoice_upload_5  ?
+            invoice.applicant_invoice_upload_4 && !invoice.applicant_invoice_upload_5 ?
               (
                 <div className="myAccInvBottom">
                   <div className="myAccInvBottom_Btn">
@@ -737,10 +782,10 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* OLTINCHI SMESTR */}
+       
 
           {
-            invoice.applicant_invoice_upload_5 && !invoice.applicant_invoice_upload_6  ?
+            invoice.applicant_invoice_upload_5 && !invoice.applicant_invoice_upload_6 ?
               (
                 <div className="myAccInvBottom">
                   <div className="myAccInvBottom_Btn">
@@ -799,10 +844,10 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* YETTINCHI SMESTR */}
+          
 
           {
-            invoice.applicant_invoice_upload_6 && !invoice.applicant_invoice_upload_7  ?
+            invoice.applicant_invoice_upload_6 && !invoice.applicant_invoice_upload_7 ?
               (
                 <div className="myAccInvBottom">
                   <div className="myAccInvBottom_Btn">
@@ -861,10 +906,10 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* SAKKIZINCHI SMESTR */}
+      
 
           {
-            invoice.applicant_invoice_upload_7 && !invoice.applicant_invoice_upload_8  ?
+            invoice.applicant_invoice_upload_7 && !invoice.applicant_invoice_upload_8 ?
               (
                 <div className="myAccInvBottom">
                   <div className="myAccInvBottom_Btn">
@@ -923,10 +968,10 @@ const MyAccInvoys = () => {
               ''
           }
 
-          {/* TO'QQIZINCHI SMESTR */}
+          
 
           {
-            invoice.applicant_invoice_upload_8 && !invoice.applicant_invoice_upload_9  ?
+            invoice.applicant_invoice_upload_8 && !invoice.applicant_invoice_upload_9 ?
               (
                 <div className="myAccInvBottom">
                   <div className="myAccInvBottom_Btn">
@@ -985,7 +1030,7 @@ const MyAccInvoys = () => {
               ''
           }
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

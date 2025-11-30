@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "../store";
 const Axios = axios.create({
   baseURL: "https://backend.edugately.com/api/v1/",
-  // baseURL: "https://10.80.80.122:8000/api/v1/",
+  // baseURL: "http://10.80.80.198:8000/api/v1/",
   timeout: 30000,
   timeoutErrorMessage: "Connection is lost. Server not responded",
 });

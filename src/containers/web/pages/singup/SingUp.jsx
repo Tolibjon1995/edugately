@@ -165,7 +165,7 @@ function SingUp() {
   return (
     <React.Fragment>
       <div className="navRegist">{/* <Navbar /> */}</div>
-      <div className="singup_asos container">
+      <div className="singup_asos container2">
         <Link to="/" className="title">
           {/* <img className="log-img" src={logo_education} alt="" /> */}
           <span className="log-img"></span>

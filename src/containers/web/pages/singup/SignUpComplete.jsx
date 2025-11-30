@@ -28,6 +28,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import close from "../../../../assets/icon/close-red.svg";
 import axios from "axios";
+import Navbar from "../Navbar2";
 
 
 function SignUpComplete() {
@@ -275,8 +276,53 @@ function SignUpComplete() {
   }, []);
   return (
     <React.Fragment>
-      <div className="navRegist">{/* <Navbar /> */}</div>
+      <div className="navRegist">
+        {/* <Navbar /> */}
+      </div>
       <div className="singup_asos container">
+      <div className="up_nav">
+          <h2 className="singup_pass"> {t("p488")}</h2>
+          <svg
+            id="svg_pass"
+            width="82"
+            height="10"
+            viewBox="0 0 82 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M82 5L74.5 0.669873V9.33013L82 5ZM0 5.75H5.125V4.25H0V5.75ZM15.375 5.75H25.625V4.25H15.375V5.75ZM35.875 5.75H46.125V4.25H35.875V5.75ZM56.3755.75H66.625V4.25H56.375V5.75Z"
+              fill="#5C7C8A"
+            />
+          </svg>
+          <h2> {t("p489")}</h2>
+          <svg
+            width="82"
+            height="10"
+            viewBox="0 0 82 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M82 5L74.5 0.669873V9.33013L82 5ZM0 5.75H5.125V4.25H0V5.75ZM15.375 5.75H25.625V4.25H15.375V5.75ZM35.875 5.75H46.125V4.25H35.875V5.75ZM56.375 5.75H66.625V4.25H56.375V5.75Z"
+              fill="#5C7C8A"
+            />
+          </svg>
+          <h2> {t("p490")}</h2>
+          <svg
+            width="82"
+            height="10"
+            viewBox="0 0 82 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M82 5L74.5 0.669873V9.33013L82 5ZM0 5.75H5.125V4.25H0V5.75ZM15.375 5.75H25.625V4.25H15.375V5.75ZM35.875 5.75H46.125V4.25H35.875V5.75ZM56.375 5.75H66.625V4.25H56.375V5.75Z"
+              fill="#5C7C8A"
+            />
+          </svg>
+          <h2> {t("p491")}</h2>
+        </div>
         <form onSubmit={handleSubmit} className="main_singup">
           <h1>{t("p78")}</h1>
           <div className="container_login">

@@ -109,7 +109,7 @@ const Kabinet = () => {
               {/* // ! */}
             </div>
             <div className="bottom p-lr-30">
-              <div className="progress">
+              <div className="progress2">
                 <h1>{t("p66")}</h1>
                 <div className="progressTdiv">
                   <div
@@ -259,6 +259,7 @@ const ButtonContainer = styled.div`
 
 const SelectColor = styled.select`
   position: absolute;
+  width: 100px;
   right: 33px;
   top: 25px;
   padding: 4px;

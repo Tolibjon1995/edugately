@@ -3,6 +3,7 @@ import Analitika from "../containers/consultantBackoffice/pages/Analitika";
 import Dagavori from "../containers/consultantBackoffice/pages/dagovori";
 import Fakultet from "../containers/consultantBackoffice/pages/Fakultet";
 import Login from "../containers/consultantBackoffice/pages/Login";
+import Login2 from "../containers/consultantBackoffice/pages/Login2";
 import LoginStaff from "../containers/consultantBackoffice/pages/LoginStaff";
 import Plateji from "../containers/consultantBackoffice/pages/Plateji";
 import SidebarAgentlar from "../containers/consultantBackoffice/pages/SidebarAgentlar";
@@ -13,6 +14,7 @@ import SideOtdel from "../containers/consultantBackoffice/pages/SideOtdel";
 import SideStrana from "../containers/consultantBackoffice/pages/SideStrana";
 import Talabalar from "../containers/consultantBackoffice/pages/Talabalar";
 import Dogovor from "../containers/StudentCabinet/pages/dogovor";
+import Kabinet2 from "../containers/StudentCabinet/pages/Kabinet2";
 import Kabinet from "../containers/StudentCabinet/pages/kabinet";
 import Personal from "../containers/StudentCabinet/pages/personal";
 import Status from "../containers/StudentCabinet/pages/status";
@@ -20,8 +22,9 @@ import MyAccInvoys from "../containers/StudentCabinet/pages/myAccInvoys";
 import Bonus from "../containers/StudentCabinet/pages/Bonus";
 import Universitet from "../containers/StudentCabinet/pages/universitet";
 import StudentCabinet from "../containers/StudentCabinet/studentCabinet";
-import Partnyors from "../containers/web/pages/Partnyors";
+import Partnyors2 from "../containers/web/pages/Partnyors2";
 import SinglePage from "../containers/web/pages/SinglePage";
+import SinglePage2 from "../containers/web/pages/SinglePage2";
 // import SinglePageTable from "../containers/web/pages/SinglePageTable";
 import Fayli from "../containers/web/pages/singup/Fayli";
 import Oplata from "../containers/web/pages/singup/Oplata";
@@ -31,10 +34,12 @@ import Profayl from "../containers/web/pages/singup/Profayl";
 import Profayl2 from "../containers/web/pages/singup/Profayl2";
 import Profayl3 from "../containers/web/pages/singup/Profayl3";
 import SingUp from "../containers/web/pages/singup/SingUp";
+import SingUp2 from "../containers/web/pages/singup/SingUp2";
 import TextDogovor from "../containers/web/pages/singup/TextDogovor";
 import Zayavka from "../containers/web/pages/singup/Zayavka";
 import Web from "../containers/web/web";
 import MainEduGate from "../containers/web/pages/MainEduGate";
+import MainPage from "../home/MainPage";
 import NewsId from "../containers/web/pages/yangilik/NewsId";
 import Home from "../containers/consultantBackoffice/univerBackoffice/pages/home";
 import Abiturient from "../containers/consultantBackoffice/univerBackoffice/pages/abiturients";
@@ -91,6 +96,7 @@ import Tabrik from "../containers/consultantBackoffice/univerBackoffice/pages/Ta
 import ZiyoSupper from "../containers/Maneger/pages/ZiyoSupper";
 import UnverBiriktirish from "../containers/Maneger/pages/UnverBiriktirish";
 import UnverList from "../containers/web/pages/UnverList/UnverList";
+import UnverList2 from "../containers/web/pages/UnverList/UnverList2";
 const routes = {
   accountant: [
     {
@@ -117,6 +123,12 @@ const routes = {
     {
       key: "university",
       path: "/",
+      component: MainPage,
+      exact: true,
+    },
+    {
+      key: "university",
+      path: "/test",
       component: MainEduGate,
       exact: true,
     },
@@ -131,7 +143,7 @@ const routes = {
     {
       key: "university",
       path: "/partners",
-      component: Partnyors,
+      component: Partnyors2,
       exact: true,
     },
 
@@ -147,6 +159,12 @@ const routes = {
       component: SinglePage,
       exact: true,
     },
+    {
+      key: "university",
+      path: "/uzbuniversity/:id",
+      component: SinglePage2,
+      exact: true,
+    },
 
     {
       key: "university",
@@ -157,6 +175,12 @@ const routes = {
     {
       key: "clientAdd",
       path: "/registration",
+      component: SingUp2,
+      exact: true,
+    },
+    {
+      key: "clientAdd",
+      path: "/registration2",
       component: SingUp,
       exact: true,
     },
@@ -175,13 +199,19 @@ const routes = {
     {
       key: "balance",
       path: "/login",
+      component: Login2,
+      exact: true,
+    },
+    {
+      key: "balance",
+      path: "/login2",
       component: Login,
       exact: true,
     },
     {
       key: "balance",
       path: "/unverlist",
-      component: UnverList,
+      component: UnverList2,
       exact: true,
     },
     {
@@ -257,6 +287,12 @@ const routes = {
     {
       key: "file",
       path: "/my-account",
+      component: Kabinet2,
+      exact: true,
+    },
+    {
+      key: "file",
+      path: "/my-account2",
       component: Kabinet,
       exact: true,
     },

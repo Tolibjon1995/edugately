@@ -157,20 +157,18 @@ function Fayli() {
 
 
 
-
-
-
+  
   return (
     <React.Fragment>
       {/* <div className="navRegist">
         <Navbar />
       </div> */}
-      <div className="singup_asos container">
-        <div className="nav_name">
+      <div className="singup_asos">
+        <div className="nav_name w-75 m-auto">
           <h1> {t("p428")} </h1>
         </div>
-        <div className="up_nav">
-          <h2 className="singup_pass"> {t("p488")}</h2>
+        <div className="up_nav w-75 m-auto mb-5">
+          <NavLink to="/sign-up" className="singup_pass h2"> {t("p488")}</NavLink>
           <svg
             id="svg_pass"
             width="82"
@@ -185,7 +183,7 @@ function Fayli() {
             />
           </svg>
 
-          <h2 className="singup_pass"> {t("p489")}</h2>
+          <NavLink to="/requisition" className="singup_pass h2"> {t("p489")}</NavLink>
           <svg
             id="svg_pass"
             width="82"
@@ -215,12 +213,12 @@ function Fayli() {
           <h2>{t("p491")}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)} className="main_singup" >
-          <h1>Файлы {t("p490")}</h1>
-          <div className="form_div2">
+          <h1> {t("p490")}</h1>
+          <div className="form_div2 text-center" style={{width:'90%'}}>
             <p className="long_p">{t("p494")}</p>
           </div>
           <div className="container_login">
-            <div className="col_6_login">
+            <div className="col_6_login pt-3">
 
               <div className="form_div">
                 <p>
@@ -521,7 +519,7 @@ function Fayli() {
             <button
               type="submit"
               style={
-                loading ? { background: "#8cb4c5" } : { background: "#00587F" }
+                loading ? { background: "#3981ea" } : { background: "#0b5ed7" }
               }
               className="reg_btn"
             >
