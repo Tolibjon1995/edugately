@@ -43,9 +43,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/upload-translation', [NotaryController::class, 'uploadTranslation'])->name('uploadTranslation');
     });
 
-    // SuperManager/Manager Routes (Placeholder)
-    Route::group(['middleware' => ['role:super_manager|manager'], 'prefix' => 'staff/manager', 'as' => 'manager.'], function () {
-        // ...
+    // Super Manager Routes
+    Route::group(['middleware' => ['role:super_manager'], 'prefix' => 'staff/super-manager', 'as' => 'super_manager.'], function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Staff\SuperManagerController::class, 'dashboard'])->name('dashboard');
+        Route::post('/assign-manager', [\App\Http\Controllers\Staff\SuperManagerController::class, 'assignManager'])->name('assignManager');
+    });
+
+    // Manager Routes (Placeholder for future logic)
+    Route::group(['middleware' => ['role:manager'], 'prefix' => 'staff/manager', 'as' => 'manager.'], function () {
+         // Route::get('/dashboard', ...);
     });
 
 });
