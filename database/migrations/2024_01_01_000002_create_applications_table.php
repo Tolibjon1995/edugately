@@ -15,26 +15,20 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('university_id')->constrained()->onDelete('cascade');
-            $table->foreignId('manager_id')->nullable()->constrained('users')->onDelete('set null'); // The user assigned as manager
+            $table->foreignId('manager_id')->nullable()->constrained('users')->onDelete('set null');
 
             // Status Machine
             $table->enum('status', [
-                'pending',              // Initial state
-                'payment_verification', // Student uploaded service fee receipt
-                'payment_approved',     // Accountant approved
+                'pending',              // Initial state, waiting for service fee upload
+                'service_fee_pending',  // Uploaded, waiting for accountant
+                'service_fee_paid',     // Verified by Accountant
                 'manager_assigned',     // Manager assigned
-                'translation_needed',   // If translation is required
-                'in_translation',       // Sent to Notary
+                'translation_needed',   // Sent to Notary
                 'translated',           // Notary finished
-                'submitted_to_uni',     // Sent to University
-                'contract_received',    // Contract uploaded
-                'tuition_verification', // Student uploaded tuition receipt
-                'contract_fee_paid',    // Student paid tuition (Verified)
-                'enrolled'              // Final success
+                'contract_received',    // Contract uploaded by Manager
+                'tuition_pending',      // Student uploaded tuition receipt
+                'completed'             // Admin/Accountant verified tuition -> Enrolled
             ])->default('pending');
-
-            $table->boolean('is_service_fee_paid')->default(false);
-            $table->boolean('is_contract_fee_paid')->default(false);
 
             $table->timestamps();
         });

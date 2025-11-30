@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('country');
+            $table->string('city')->nullable(); // From shahar
+            $table->string('country')->nullable();
             $table->string('logo')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

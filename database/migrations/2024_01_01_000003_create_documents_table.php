@@ -15,17 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('application_id')->constrained()->onDelete('cascade');
 
-            $table->enum('type', [
-                'passport',
-                'diploma',
-                'check_service', // Service Fee Receipt
-                'check_tuition', // Tuition Fee Receipt
-                'contract',      // University Contract
-                'translated_docs' // Translated Documents
-            ]);
-
+            $table->string('type'); // service_receipt, translated_docs, contract, tuition_receipt, etc.
             $table->string('file_path');
-            $table->string('status')->default('pending'); // pending, approved, rejected
+            $table->string('original_name')->nullable();
+
             $table->timestamps();
         });
     }

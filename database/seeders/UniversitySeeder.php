@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\University;
+use Illuminate\Support\Facades\File;
 
 class UniversitySeeder extends Seeder
 {
@@ -12,29 +13,27 @@ class UniversitySeeder extends Seeder
      */
     public function run(): void
     {
-        $universities = [
-            [
-                'name' => 'Harvard University',
-                'country' => 'USA',
-                'logo' => 'harvard_logo.png',
-                'description' => 'A prestigious university in Cambridge, Massachusetts.',
-            ],
-            [
-                'name' => 'University of Oxford',
-                'country' => 'UK',
-                'logo' => 'oxford_logo.png',
-                'description' => 'A collegiate research university in Oxford, England.',
-            ],
-            [
-                'name' => 'Tashkent State University of Economics',
-                'country' => 'Uzbekistan',
-                'logo' => 'tsue_logo.png',
-                'description' => 'Leading economic university in Central Asia.',
-            ],
-        ];
+        $jsonPath = base_path('src/containers/web/json/data.json');
 
-        foreach ($universities as $uni) {
-            University::create($uni);
+        if (File::exists($jsonPath)) {
+            $json = File::get($jsonPath);
+            $data = json_decode($json, true);
+
+            foreach ($data as $item) {
+                University::create([
+                    'name' => $item['univer'] ?? 'Unknown University',
+                    'city' => $item['shahar'] ?? null,
+                    'description' => $item['hobbi'] ?? null, // Mapping 'hobbi' to description as per prompt hint or just extra data
+                    'country' => 'Uzbekistan', // Defaulting based on context of cities
+                ]);
+            }
+        } else {
+            // Fallback if file not found
+            University::create([
+                'name' => 'Default University',
+                'city' => 'Tashkent',
+                'country' => 'Uzbekistan'
+            ]);
         }
     }
 }
